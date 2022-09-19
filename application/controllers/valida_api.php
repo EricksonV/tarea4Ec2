@@ -33,14 +33,14 @@ class valida_api extends REST_Controller {
         if($this->valida->verifica_existencia($codigoGenerado) && $this->valida->verifica_existencia2($correo)){
             if($this->valida->verifica_existencia3($correo)){
                 $res = array (
-                    'status' => 400,
+                    'status' => 201,
                     'data' => $this->valida->obtiene_existencia($codigoGenerado),
                     'comentario' => "existe"
                 ); 
             }else{
                 $datos = $this->valida->save($data);
                 $res['status'] = 201;
-                $res['message'] = 'Registro Insertado';
+                $res['message'] = 'Registro validado';
             }
            
             
@@ -48,11 +48,11 @@ class valida_api extends REST_Controller {
             
            if($datos) {
             $res['status'] = 201;
-            $res['message'] = 'Registro Insertado';
+            $res['message'] = 'Registro validado';
             
             } else {
                 $res['status'] = 400;
-                $res['message'] = 'insert failed';
+                $res['message'] = 'falló la validación';
             
             }
         }

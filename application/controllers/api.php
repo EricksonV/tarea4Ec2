@@ -73,7 +73,7 @@ class api extends REST_Controller {
                     
                 } else {
                     $res['status'] = 400;
-                    $res['message'] = 'insert failed';
+                    $res['message'] = 'Falló la inserción';
                    
                 }
             }
